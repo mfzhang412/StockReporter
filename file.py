@@ -1,7 +1,9 @@
 import os
 
 class File(object):
-    """Interacts with a file"""
+    """
+    Interacts with a file
+    """
 
     version = '0.1'
 
