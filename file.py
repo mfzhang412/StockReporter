@@ -5,7 +5,7 @@ class File(object):
     Interacts with a file
     """
 
-    version = '0.1'
+    version = '0.2'
 
     
     def __init__(self, location):
@@ -24,9 +24,8 @@ class File(object):
         """
         if (self.exists()):
             raise IOError("A file at '{}' already exists.".format(self.location))
-        f = open(self.location, 'w')
-        f.write(content)
-        f.close()
+        with open(self.location, 'w') as f:
+            f.write(content)
 
     def delete_file(self):
         """
@@ -44,10 +43,8 @@ class File(object):
         """
         if (not self.exists()):
             raise IOError("File at '{}' does not exist.".format(self.location))
-        f = open(self.location, 'r')
-        content = f.read()
-        f.close()
-        return content
+        with open(self.location, 'r') as f:
+            return f.read()
 
     def add(self, content):
         """
@@ -57,9 +54,8 @@ class File(object):
         """
         if (not self.exists()):
             raise IOError("File at '{}' does not exist.".format(self.location))
-        f = open(self.location, 'a')
-        f.write(content)
-        f.close()
+        with open(self.location, 'a') as f:
+            f.write(content)
 
     def replace_all(self, content):
         """
@@ -69,9 +65,8 @@ class File(object):
         """
         if (not self.exists()):
             raise IOError("File at '{}' does not exist.".format(self.location))
-        f = open(self.location, 'w')
-        f.write(content)
-        f.close()
+        with open(self.location, 'w') as f:
+            f.write(content)
 
     def clear(self):
         """
@@ -79,8 +74,8 @@ class File(object):
         """
         if (not self.exists()):
             raise IOError("File at '{}' does not exist.".format(self.location))
-        f = open(self.location, 'w')
-        f.close()
+        with open(self.location, 'w') as _:
+            pass
 
     def exists(self):
         """
