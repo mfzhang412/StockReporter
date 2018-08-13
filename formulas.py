@@ -35,7 +35,7 @@ def calc_sticker_price(expected_share_price, minimal_acceptable_rate_of_return, 
     return sticker_price
 
 
-def calc_discount_price(sticker_price, margin_of_safety):
+def calc_margin_of_safety_price(sticker_price, margin_of_safety):
     discount_price = sticker_price * margin_of_safety
     return discount_price
 
