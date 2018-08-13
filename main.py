@@ -2,6 +2,7 @@ from report import *
 from file import *
 from datacontainer import *
 from website import *
+from formulas import *
 
 import collections
 
@@ -30,6 +31,7 @@ def clean_split(string, delim='\n', generator=False):
     elif (generator == True):
         return (_ for _ in _list if len(_) > 0)
 
+
 def main():
     # pull names from file
     relevant_stocks = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
@@ -41,14 +43,15 @@ def main():
         Company = collections.namedtuple('Company', 'name stock_symbol')
         c = Company(*company_fields)
         companies.append(c)
-    #relevant_stocks.companies = [_.split(', ') for _ in _list]
+    # relevant_stocks.companies = [_.split(', ') for _ in _list]
     # access their websites for their information
     for company in companies:
         print(company)
         
     # do analysis on their information
     # format data
-    # contruct a report
+    # construct a report
     # send the report
+
 
 main()
