@@ -27,14 +27,14 @@ class Website(object):
         """
         try:
             with closing(get(self.url, stream=True)) as resp:
-                if (self.good_response(resp)):
+                if (self._good_response(resp)):
                     return resp.content
                 else:
                     return None
         except RequestException as error:
             raise
 
-    def good_response(self, resp):
+    def _good_response(self, resp):
         """
         Return True if response is in HTML/XML, False otherwise
 
