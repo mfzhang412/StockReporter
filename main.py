@@ -16,6 +16,7 @@ import collections
 ## will have following classes:
 ###### stocks, portfolios, news articles, companies
 
+
 def clean_split(string, delim='\n', generator=False):
     """
     Split a string with a delimiter and remove any empty elements.
@@ -31,25 +32,34 @@ def clean_split(string, delim='\n', generator=False):
     elif (generator == True):
         return (_ for _ in _list if len(_) > 0)
 
-
-def main():
-    # pull names from file
-    relevant_stocks = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
+    
+def get_companies_from_file(file):
     contents = relevant_stocks.read_all().strip()
     company_info = (grouping for grouping in contents.split("\n"))
+    Company = collections.namedtuple('Company', 'name stock_symbol')
     companies = []
     for grouping in company_info:
         company_fields = grouping.split(', ')
-        Company = collections.namedtuple('Company', 'name stock_symbol')
-        c = Company(*company_fields)
-        companies.append(c)
-    # relevant_stocks.companies = [_.split(', ') for _ in _list]
+        company = Company(*company_fields)
+        companies.append(company)
+    return companies
+
+
+def main():
+    # pull company names from file
+    relevant_stocks = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
+    companies = get_companies_from_file(relevant_stocks)
     # access their websites for their information
-    for company in companies:
-        print(company)
-        
-    # do analysis on their information
-    # format data
+    # do analysis on the company's information and the company's stock information
+    
+    # pull portfolio links from file
+    # access their websites for their information
+    # do analysis on the portfolio's information
+    
+    # scrape web for news articles
+    # access those news articles
+    # do analysis on the news article's information
+    
     # construct a report
     # send the report
 
