@@ -5,8 +5,9 @@ def calc_liquidity_metric(current_assets, current_liability):
     return liquidity_metric
 
 
-def calc_return_on_capital(company_earnings, total_capital):
-    return_on_capital = 1.0 * company_earnings / total_capital
+def calc_return_on_capital(earnings, total_capital):
+    ## total_capital could be total assets, total equity + money borrowed, or total equity
+    return_on_capital = 1.0 * earnings / total_capital
     return return_on_capital
 
 
