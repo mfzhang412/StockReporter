@@ -47,7 +47,7 @@ def get_companies_from_file(file):
 
 def get_industries_from_file(file):
     contents = file.read_all().strip()
-    industries_info = contents.split('\n')
+    industries_info = (grouping for grouping in contents.split('\n'))
     Industry = namedtuple('Industry', 'industry precedent dependent')
     industries = []
     for info in industries_info:
