@@ -4,7 +4,7 @@ from datacontainer import *
 from website import *
 from formulas import *
 
-import collections
+from collections import namedtuple
 
 ## things in computer files:
 #### companies for initial input
@@ -34,15 +34,26 @@ def clean_split(string, delim='\n', generator=False):
 
     
 def get_companies_from_file(file):
-    contents = relevant_stocks.read_all().strip()
-    company_info = (grouping for grouping in contents.split("\n"))
-    Company = collections.namedtuple('Company', 'name stock_symbol')
+    contents = file.read_all().strip()
+    company_info = (grouping for grouping in contents.split('\n'))
+    Company = namedtuple('Company', 'name stock_symbol')
     companies = []
-    for grouping in company_info:
-        company_fields = grouping.split(', ')
+    for info in company_info:
+        company_fields = info.split(', ')
         company = Company(*company_fields)
         companies.append(company)
     return companies
+
+
+def get_portfolios_from_file(file):
+    contents = file.read_all().strip()
+    portfolio_info = contents.split('\n')
+    Portfolio = namedtuple('Portfolio', 'url')
+    portfolios = []
+    for info in portfolio_info:
+        portfolio = Portfolio(info)
+        portfolios.append(portfolio)
+    return portfolios
 
 
 def main():
@@ -53,6 +64,8 @@ def main():
     # do analysis on the company's information and the company's stock information
     
     # pull portfolio links from file
+    relevant_portfolios = File("")
+    portfolios = get_portfolios_from_file(relevant_portfolios)
     # access their websites for their information
     # do analysis on the portfolio's information
     
