@@ -60,3 +60,13 @@ def calc_average_growth_rate(equity_and_dividend_per_share, earnings_per_share, 
     return average
     
     
+def calc_return_on_equity(earnings, equity):
+    return_on_equity = 1.0 * earnings / equity
+    return return_on_equity
+
+
+def calc_return_on_invested_capital(earnings, equity, debt):
+    return_on_invested_capital = 1.0 * earnings / (equity + debt)
+    return return_on_invested_capital
+
+
