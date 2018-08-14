@@ -40,3 +40,23 @@ def calc_margin_of_safety_price(sticker_price, margin_of_safety):
     return discount_price
 
 
+def calc_equity_per_share(equity, number_of_shares):
+    equity_per_share = 1.0 * equity / number_of_shares
+    return equity_per_share
+
+
+def calc_earnings_per_share(net_income, number_of_shares):
+    earnings_per_share = 1.0 * net_income / number_of_shares
+    return earnings_per_share
+
+
+def calc_revenue_per_share(revenue, number_of_shares):
+    revenue_per_share = 1.0 * revenue / number_of_shares
+    return revenue_per_share
+    
+
+def calc_average_growth_rate(equity_and_dividend_per_share, earnings_per_share, revenue_per_share, operating_cash_flow):
+    average = 1.0 * (equity_and_dividend_per_share+earnings_per_share+revenue_per_share+operating_cash_flow) / 4
+    return average
+    
+    
