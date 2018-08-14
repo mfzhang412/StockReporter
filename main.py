@@ -95,5 +95,6 @@ def main():
     # send the report
     
 
-main()
+if __name__ == '__main__':
+    main()
 
