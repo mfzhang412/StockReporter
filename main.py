@@ -45,6 +45,18 @@ def get_companies_from_file(file):
     return companies
 
 
+def get_industries_from_file(file):
+    contents = file.read_all().strip()
+    industries_info = contents.split('\n')
+    Industry = namedtuple('Industry', 'industry precedent dependent')
+    industries = []
+    for info in industries_info:
+        industry_fields = info.split(', ')
+        industry = Industry(*industry_fields)
+        industries.append(industry)
+    return industries
+    
+
 def get_portfolios_from_file(file):
     contents = file.read_all().strip()
     portfolio_info = contents.split('\n')
@@ -60,8 +72,14 @@ def main():
     # pull company names from file
     relevant_companies = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
     companies = get_companies_from_file(relevant_companies)
-    # access their websites for their information
+    # access their websites for their information (stocks and actual company info)
     # do analysis on the company's information and the company's stock information
+    
+    # pull industries and dependencies and reliances of the company
+    relevant_industries = File("")
+    industries = get_industries_from_file(relevant_industries)
+    # access news related to the different industries and the performance of the industry
+    # do analysis on this information
     
     # pull portfolio links from file
     relevant_portfolios = File("")
@@ -75,6 +93,7 @@ def main():
     
     # construct a report
     # send the report
-
+    
 
 main()
+
