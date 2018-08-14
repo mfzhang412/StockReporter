@@ -47,8 +47,8 @@ def get_companies_from_file(file):
 
 def main():
     # pull company names from file
-    relevant_stocks = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
-    companies = get_companies_from_file(relevant_stocks)
+    relevant_companies = File("C:\\Users\\Michael Zhang\\Documents\\testing01.txt")
+    companies = get_companies_from_file(relevant_companies)
     # access their websites for their information
     # do analysis on the company's information and the company's stock information
     
