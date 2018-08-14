@@ -71,3 +71,8 @@ def calc_return_on_invested_capital(earnings, equity, debt):
     return return_on_invested_capital
 
 
+def calc_growth_rate(current_value, previous_value):
+    growth_rate = 1.0 * (current_value / previous_value) - 1
+    return growth_rate
+
+
