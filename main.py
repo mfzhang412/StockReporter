@@ -35,7 +35,7 @@ def clean_split(string, delim='\n', generator=False):
     
 def get_companies_from_file(file):
     contents = file.read_all().strip()
-    company_info = (grouping for grouping in contents.split('\n'))
+    company_info = contents.split('\n')
     Company = namedtuple('Company', 'name stock_symbol')
     companies = []
     for info in company_info:
@@ -47,7 +47,7 @@ def get_companies_from_file(file):
 
 def get_industries_from_file(file):
     contents = file.read_all().strip()
-    industries_info = (grouping for grouping in contents.split('\n'))
+    industries_info = contents.split('\n')
     Industry = namedtuple('Industry', 'industry precedent dependent')
     industries = []
     for info in industries_info:
@@ -60,10 +60,11 @@ def get_industries_from_file(file):
 def get_portfolios_from_file(file):
     contents = file.read_all().strip()
     portfolio_info = contents.split('\n')
-    Portfolio = namedtuple('Portfolio', 'url')
+    Portfolio = namedtuple('Portfolio', 'name website')
     portfolios = []
     for info in portfolio_info:
-        portfolio = Portfolio(info)
+        portfolio_fields = info.split(', ')
+        portfolio = Portfolio(*portfolio_fields)
         portfolios.append(portfolio)
     return portfolios
 
