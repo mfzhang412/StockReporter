@@ -76,6 +76,10 @@ def main():
     # access those news articles
     # do analysis on the news article's information
     
+    # scrape web for relevant key words
+    # access those articles
+    # do analysis on the articles (or just link to them in the email)
+    
     # construct a report
     # send the report
     
