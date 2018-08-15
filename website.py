@@ -8,7 +8,7 @@ class Website(object):
     Represents an HTML/XML website.
     """
 
-    version = '0.2'
+    version = '0.3'
     
 
     def __init__(self, url):
@@ -62,15 +62,17 @@ class Website(object):
         return html
         
         
-    def get_elements(self, tag):
+    def get_elements(self, html_tag=None, html_class=None, html_id=None):
         """
         Retrieve the elements with the specified tag from the URL.
         
         :param tag: The html tag to use for the search
+        :param html_class: The html class to use for the search
+        :param html_id: The html id to use for the search
         :return: A list of elements with the specified tag
         """
         html = self.get_html()
-        list_of_elements = html.find_all(tag)
+        list_of_elements = html.find_all(html_tag, class_=html_class, id=html_id)
         return list_of_elements
         
 
