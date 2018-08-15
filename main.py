@@ -17,22 +17,6 @@ from collections import namedtuple
 ###### stocks, portfolios, news articles, companies
 
 
-def clean_split(string, delim='\n', generator=False):
-    """
-    Split a string with a delimiter and remove any empty elements.
-
-    :param string: the string to split
-    :param delim: the delimiter to split the string with, default is \\n
-    :param generator: option to return a generator, default is False
-    :return: a list that is split without empty values
-    """
-    _list = string.split(delim)
-    if (generator == False):
-        return [_ for _ in _list if len(_) > 0]
-    elif (generator == True):
-        return (_ for _ in _list if len(_) > 0)
-
-    
 def get_companies_from_file(file):
     contents = file.read_all().strip()
     company_info = contents.split('\n')
